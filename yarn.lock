@@ -3210,6 +3210,12 @@ electric-base-components@alpha:
     metal-toggler "^2.0.0"
     metal-tooltip "^2.0.3"
 
+electric-marble-components@alpha:
+  version "2.0.0-alpha.7"
+  resolved "https://registry.yarnpkg.com/electric-marble-components/-/electric-marble-components-2.0.0-alpha.7.tgz#5297b4bad866ad95a2ddb0d58fafb5a91ddfd30e"
+  dependencies:
+    electric-base-components alpha
+
 electric-quartz-components@alpha:
   version "2.0.0-alpha.3"
   resolved "https://registry.yarnpkg.com/electric-quartz-components/-/electric-quartz-components-2.0.0-alpha.3.tgz#b073728a5646008973d17b9a0681be3aa3d252c3"

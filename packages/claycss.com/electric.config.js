@@ -29,13 +29,26 @@ if (clayPath) {
 }
 
 const excludedComponents = /.*pagination/;
-const metalComponents = ['electric-quartz-components']
+const metalComponents = ['electric-marble-components']
 	.concat(fs.readdirSync('../').filter(f => f.match(/^clay-.*/) && !f.match(excludedComponents)));
 
-
 module.exports = {
+	apiConfig: {
+		layout: 'api',
+		project: {
+			refs: ['v2.0.0-rc.0'],
+			repo: 'clay',
+			src: [
+				'packages/clay-*/src/**/*.js',
+			],
+			user: 'liferay',
+		},
+	},
 	frontMatterHook: function(data) {
 		return generateIconData(data);
+	},
+	entryPoints: {
+		electricAPI: path.join(__dirname, 'src/partials/ElectricAPI.js'),
 	},
 	codeMirrorLanguages: ['xml', 'htmlmixed', 'soy'],
 	metalComponents: metalComponents,

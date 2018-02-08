@@ -19,6 +19,7 @@
     "concurrently": "^3.5.0",
     "countries-list": "^2.0.0",
     "electric-quartz-components": "alpha",
+    "electric-marble-components": "alpha",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
     "gulp-storage": "^1.0.6",
