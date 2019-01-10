@@ -11,6 +11,8 @@ import Soy from 'metal-soy';
 
 import templates from './ClayDatePicker.soy.js';
 
+const DateNow = new Date();
+
 /**
  * Metal ClayDatePicker component.
  * @extends ClayComponent
@@ -83,7 +85,7 @@ class ClayDatePicker extends ClayComponent {
 	 * Handles the next month button
 	 * @protected
 	 */
-	_handleNextMonth() {
+	_handleNextMonthClicked() {
 		this.currentMonth = moment(this.currentMonth)
 			.clone()
 			.add(1, 'M')
@@ -113,7 +115,7 @@ class ClayDatePicker extends ClayComponent {
 	 * Handles the previous month button
 	 * @protected
 	 */
-	_handlePreviousMonth() {
+	_handlePreviousMonthClicked() {
 		this.currentMonth = moment(this.currentMonth)
 			.clone()
 			.add(-1, 'M')
@@ -387,7 +389,7 @@ ClayDatePicker.STATE = {
 	 * @memberof ClayDatePicker
 	 * @type {?int}
 	 */
-	firstDayOfWeek: Config.oneOf([0, 1, 2, 3, 4, 5, 6]).value(0),
+	firstDayOfWeek: Config.inRange(0, 6).value(0),
 
 	/**
 	 * Id to be applied to the element.
@@ -405,7 +407,7 @@ ClayDatePicker.STATE = {
 	 * @memberof ClayDatePicker
 	 * @type {!Date}
 	 */
-	initialMonth: Config.instanceOf(Date).value(new Date()),
+	initialMonth: Config.instanceOf(Date).value(DateNow),
 
 	/**
 	 * The names of the months.
@@ -467,6 +469,15 @@ ClayDatePicker.STATE = {
 	timeFormat: Config.string().value('HH:mm'),
 
 	/**
+	 * Describe a brief tip to help users interact.
+	 * @default false
+	 * @instance
+	 * @memberof ClayDatePicker
+	 * @type {?bool}
+	 */
+	useNative: Config.bool().value(false),
+
+	/**
 	 * Short names of days of the week to use in the header
 	 * of the month. It should start from Sunday.
 	 * @default S M T W T F S
@@ -483,7 +494,13 @@ ClayDatePicker.STATE = {
 	 * @memberof ClayDatePicker
 	 * @type {!Array<String>}
 	 */
-	years: Config.array().required(),
+	years: Config.shapeOf({
+		start: Config.number(),
+		end: Config.number(),
+	}).value({
+		start: DateNow.getFullYear(),
+		end: DateNow.getFullYear(),
+	}),
 };
 
 defineWebComponent('clay-date-picker', ClayDatePicker);
