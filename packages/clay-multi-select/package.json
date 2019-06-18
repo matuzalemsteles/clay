@@ -1,6 +1,6 @@
 {
   "name": "clay-multi-select",
-  "version": "2.16.0",
+  "version": "2.16.1",
   "description": "Metal ClayMultiSelect component",
   "license": "BSD-3-Clause",
   "repository": "https://github.com/liferay/clay/tree/master/packages/clay-multi-select",
@@ -28,7 +28,7 @@
     "metal"
   ],
   "dependencies": {
-    "clay-autocomplete": "^2.16.0",
+    "clay-autocomplete": "^2.16.1",
     "clay-button": "^2.16.0",
     "clay-component": "^2.16.0",
     "clay-label": "^2.16.0",
