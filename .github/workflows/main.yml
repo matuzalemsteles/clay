@@ -26,6 +26,8 @@ jobs:
               run: yarn checkDeps
             - name: Clean jest cache
               run: yarn test --clearCache
+            - name: Yarn why browserslist-config-clay
+              run: yarn why browserslist-config-clay
             - name: Run Jest
               env:
                   CI: true
