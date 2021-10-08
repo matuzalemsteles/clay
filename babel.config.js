@@ -25,7 +25,12 @@ module.exports = (api) => {
 			'transform-inline-environment-variables',
 		],
 		presets: [
-			'@babel/env',
+			[
+				'@babel/env',
+				{
+					ignoreBrowserslistConfig: false,
+				},
+			],
 			'@babel/preset-react',
 			'@babel/preset-typescript',
 		],
