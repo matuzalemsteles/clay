@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.47.1 (2022-02-23)
+
+**Note:** Version bump only for package browserslist-config-clay
+
 # [3.37.0](https://github.com/liferay/clay/compare/v3.36.0...v3.37.0) (2021-10-06)
 
 **Note:** Version bump only for package browserslist-config-clay
