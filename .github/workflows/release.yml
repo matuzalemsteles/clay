@@ -43,6 +43,8 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -59,8 +61,6 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}
-          token: ${{ github.token }}
-          repository: ${{ github.repository }}
       - run: lerna publish from-package --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
