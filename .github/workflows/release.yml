@@ -13,8 +13,6 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
           scope: '@clayui'
-      - name: Clean yarn cache
-        run: yarn cache clean
       - name: Install Dependencies
         run: yarn install
       - name: Lint
@@ -28,13 +26,7 @@ jobs:
             BROWSERSLIST_CONFIG: './packages/browserslist-config-clay/config'
             BROWSERSLIST_DISABLE_CACHE: 1
             CI: true
-        run: yarn test --coverage
-      - name: Push to Coveralls
-        if: ${{ success() }}
-        uses: coverallsapp/github-action@v1.1.1
-        with:
-            path-to-lcov: ./coverage/lcov.info
-            github-token: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn test
       - uses: actions/cache@v2
         name: Cache build
         id: cache-build
@@ -67,6 +59,7 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: lerna publish from-package --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
