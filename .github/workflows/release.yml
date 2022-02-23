@@ -59,7 +59,8 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
       - run: lerna publish from-package --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
