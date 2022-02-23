@@ -1,6 +1,6 @@
 {
 	"name": "@clayui/charts",
-	"version": "3.47.1",
+	"version": "3.47.2",
 	"description": "React.js wrapper for D3 and billboard.js",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
