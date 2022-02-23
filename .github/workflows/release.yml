@@ -13,6 +13,10 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
           scope: '@clayui'
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies
         run: yarn install
       - name: Lint
@@ -39,12 +43,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/cache@v2
-        id: restore-build
         with:
-          path: ./*
-          key: ${{ github.sha }}
-          token: ${{ github.token }}
-          repository: ${{ github.repository }}
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
