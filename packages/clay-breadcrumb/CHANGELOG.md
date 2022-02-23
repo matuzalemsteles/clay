@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.47.3 (2022-02-23)
+
+**Note:** Version bump only for package @clayui/breadcrumb
+
 ## 3.47.2 (2022-02-23)
 
 **Note:** Version bump only for package @clayui/breadcrumb
