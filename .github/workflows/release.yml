@@ -7,8 +7,36 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/main.yml
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@clayui'
+      - name: Clean yarn cache
+        run: yarn cache clean
+      - name: Install Dependencies
+        run: yarn install
+      - name: Lint
+        run: yarn lint
+      - name: Format
+        run: yarn format:check
+      - name: Verify Dependencies
+        run: yarn checkDeps
+      - name: Run Jest
+        env:
+            BROWSERSLIST_CONFIG: './packages/browserslist-config-clay/config'
+            BROWSERSLIST_DISABLE_CACHE: 1
+            CI: true
+        run: yarn test --coverage
+      - name: Push to Coveralls
+        if: ${{ success() }}
+        uses: coverallsapp/github-action@v1.1.1
+        with:
+            path-to-lcov: ./coverage/lcov.info
+            github-token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/cache@v2
+        name: Cache build
         id: cache-build
         with:
           path: ./*
@@ -39,12 +67,6 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
-          scope: '@clayui'
-      - run: yarn
       - run: lerna publish from-package --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
