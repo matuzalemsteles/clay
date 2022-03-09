@@ -61,12 +61,12 @@ jobs:
     needs: version
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: actions/cache@v2
         id: cache-build
         with:
           path: ./*
           key: ${{ github.sha }}
-      - run: git pull origin
       - run: git push origin master:stable
       - run: lerna publish from-package --yes
         env:
