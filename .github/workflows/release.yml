@@ -55,7 +55,8 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           lerna version --conventional-commits --no-push --yes
-      - run: git push origin master --follow-tags
+      - run: git push origin master --follow-tagss
+      - run: git pull origin
       - run: git push origin master:stable
 
   publish:
