@@ -1,6 +1,6 @@
 {
 	"name": "@clayui/list",
-	"version": "3.48.6",
+	"version": "3.48.7",
 	"description": "ClayList component",
 	"license": "BSD-3-Clause",
 	"repository": "https://github.com/liferay/clay",
@@ -26,13 +26,13 @@
 		"react"
 	],
 	"dependencies": {
-		"@clayui/drop-down": "^3.48.6",
-		"@clayui/form": "^3.48.6",
-		"@clayui/icon": "^3.48.6",
-		"@clayui/label": "^3.48.6",
-		"@clayui/layout": "^3.48.6",
-		"@clayui/link": "^3.48.6",
-		"@clayui/sticker": "^3.48.6",
+		"@clayui/drop-down": "^3.48.7",
+		"@clayui/form": "^3.48.7",
+		"@clayui/icon": "^3.48.7",
+		"@clayui/label": "^3.48.7",
+		"@clayui/layout": "^3.48.7",
+		"@clayui/link": "^3.48.7",
+		"@clayui/sticker": "^3.48.7",
 		"classnames": "^2.2.6",
 		"warning": "^4.0.3"
 	},
