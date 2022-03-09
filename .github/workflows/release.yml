@@ -48,12 +48,6 @@ jobs:
           git config user.email github-actions@github.com
           lerna version --conventional-commits --no-push --yes
       - run: git push origin master --follow-tags
-      - uses: actions/cache@v2
-        name: Cache build
-        id: cache-build
-        with:
-          path: ./*
-          key: ${{ github.sha }}
 
   publish:
     needs: version
@@ -66,10 +60,9 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           scope: '@clayui'
       - uses: actions/cache@v2
-        id: cache-build
         with:
-          path: ./*
-          key: ${{ github.sha }}
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
