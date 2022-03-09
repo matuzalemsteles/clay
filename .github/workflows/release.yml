@@ -66,6 +66,7 @@ jobs:
         with:
           path: ./*
           key: ${{ github.sha }}
+      - run: git pull origin
       - run: git push origin master:stable
       - run: lerna publish from-package --yes
         env:
