@@ -7,16 +7,16 @@
 		"npm": ">=3.0.0"
 	},
 	"dependencies": {
-		"@clayui/button": "^3.48.3",
-		"@clayui/form": "^3.48.3",
-		"@clayui/layout": "^3.48.3",
-		"@clayui/list": "^3.48.3",
-		"@clayui/management-toolbar": "^3.48.3",
-		"@clayui/multi-select": "^3.48.3",
-		"@clayui/nav": "^3.48.3",
-		"@clayui/pagination": "^3.48.3",
-		"@clayui/pagination-bar": "^3.48.3",
-		"@clayui/panel": "^3.48.3",
+		"@clayui/button": "^3.48.4",
+		"@clayui/form": "^3.48.4",
+		"@clayui/layout": "^3.48.4",
+		"@clayui/list": "^3.48.4",
+		"@clayui/management-toolbar": "^3.48.4",
+		"@clayui/multi-select": "^3.48.4",
+		"@clayui/nav": "^3.48.4",
+		"@clayui/pagination": "^3.48.4",
+		"@clayui/pagination-bar": "^3.48.4",
+		"@clayui/panel": "^3.48.4",
 		"classnames": "^2.2.6",
 		"react-dnd": "^11.1.1",
 		"react-dnd-html5-backend": "^11.1.1",
@@ -25,5 +25,5 @@
 	"devDependencies": {
 		"@types/recharts": "1.8.10"
 	},
-	"version": "3.48.3"
+	"version": "3.48.4"
 }
