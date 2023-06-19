@@ -104,6 +104,8 @@ export function ItemContextProvider({children, value}: Props) {
 
 	const [overPosition, setOverPosition] = useState<Position | null>(null);
 
+	const [validDrop, setValidDrop] = useState<boolean>(true);
+
 	const [{isDragging}, drag, preview] = useDrag({
 		canDrag() {
 			return dragAndDrop ?? false;
@@ -137,7 +139,8 @@ export function ItemContextProvider({children, value}: Props) {
 			if (
 				monitor.didDrop() ||
 				!monitor.canDrop() ||
-				(dragItem as Value).item.key === item.key
+				(dragItem as Value).item.key === item.key ||
+				!validDrop
 			) {
 				return;
 			}
@@ -231,10 +234,13 @@ export function ItemContextProvider({children, value}: Props) {
 				);
 
 				if (!isHovered) {
+					setValidDrop(false);
+
 					return;
 				}
 			}
 
+			setValidDrop(true);
 			setOverPosition(currentPosition);
 		},
 	});
