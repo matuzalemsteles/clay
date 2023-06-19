@@ -219,7 +219,7 @@ export function ItemContextProvider({children, value}: Props) {
 				const tree = createImmutableTree(items as any, nestedKey!);
 				const indexes = getNewItemPath(item.indexes, currentPosition);
 
-				onItemHover(
+				const isHovered = onItemHover(
 					removeItemInternalProps(
 						(dragItem as unknown as Value).item
 					),
@@ -229,6 +229,10 @@ export function ItemContextProvider({children, value}: Props) {
 						previous: (dragItem as unknown as Value).item.index,
 					}
 				);
+
+				if (!isHovered) {
+					return;
+				}
 			}
 
 			setOverPosition(currentPosition);
